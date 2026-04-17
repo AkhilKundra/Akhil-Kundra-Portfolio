@@ -1,0 +1,336 @@
+/* --- CSS Variables for an Elegant, Modern Color Scheme --- */
+:root {
+    --bg-color: #f0f4f8; /* Softer, slightly blue-tinted background */
+    --card-bg: #ffffff;
+    --text-main: #334155;
+    --text-light: #64748b;
+    --primary-color: #3b82f6; /* Brighter, more modern blue */
+    --primary-hover: #2563eb;
+    --border-color: #e2e8f0;
+    --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05);
+    --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.1); /* Softer, wider shadow for depth */
+    --transition-speed: 0.4s; /* Smooth timing for elegant animations */
+}
+
+/* --- Global Reset & Typography --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Upgraded modern font */
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.7;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 0.25rem;
+    margin-bottom: 1.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+/* --- Header Section --- */
+header {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: #ffffff;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+header h1 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-top: 1rem;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
+    box-shadow: var(--shadow-md);
+}
+
+.tagline {
+    font-size: 1.2rem;
+    color: #cbd5e1;
+    margin-bottom: 1.5rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.5rem 1.25rem;
+    border-radius: 20px;
+    font-weight: 500;
+    transition: all var(--transition-speed);
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* --- Navigation Menu with Animated Underline --- */
+nav {
+    background-color: var(--card-bg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1.2rem 0;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative; /* For the underline animation */
+    padding-bottom: 5px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width var(--transition-speed) ease-in-out;
+}
+
+.nav-links a:hover::after {
+    width: 100%; /* Underline grows from left to right */
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Main Content & Floating Cards --- */
+main {
+    padding: 3rem 0;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 16px; /* Rounder, friendlier corners */
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Subtle glassy edge */
+    transition: transform var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1), box-shadow var(--transition-speed);
+}
+
+.card:hover {
+    transform: translateY(-8px); /* Card floats up */
+    box-shadow: var(--shadow-md); /* Shadow deepens */
+}
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: var(--border-color);
+    margin: 1.5rem 0;
+}
+
+/* --- Lists & Data Formatting --- */
+.timeline-list, .standard-list {
+    list-style: none;
+}
+
+.timeline-list li {
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--border-color);
+}
+
+.timeline-list li:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-list .year {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 0.25rem;
+}
+
+.standard-list li {
+    margin-bottom: 0.75rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.standard-list li::before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-size: 1.5rem;
+    line-height: 1;
+    top: -2px;
+}
+
+.grid-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+/* --- Description List (Projects) --- */
+.project-list dt {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-top: 1.5rem;
+}
+
+.project-list dt:first-child {
+    margin-top: 0;
+}
+
+.project-list dd {
+    margin-left: 0;
+    margin-top: 0.5rem;
+    color: var(--text-main);
+}
+
+/* --- Borderless Table (Other Details) --- */
+.borderless-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.borderless-table th, 
+.borderless-table td {
+    padding: 0.75rem 0;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.borderless-table tr:last-child th,
+.borderless-table tr:last-child td {
+    border-bottom: none;
+}
+
+.borderless-table th {
+    width: 35%;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+/* --- Utilities & Glowing Buttons --- */
+.center-text {
+    text-align: center;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-color), #60a5fa);
+    color: #ffffff;
+    padding: 0.85rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); /* Colored glow */
+    transition: all var(--transition-speed);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--primary-hover), var(--primary-color));
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+    color: #ffffff;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #0f172a;
+    color: #94a3b8;
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 0.9rem;
+}
+
+/* --- Responsive Design for Mobile --- */
+@media (max-width: 768px) {
+    header {
+        padding: 3rem 1rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .card {
+        padding: 1.5rem;
+    }
+    
+    .borderless-table th, 
+    .borderless-table td {
+        display: block;
+        width: 100%;
+    }
+    
+    .borderless-table th {
+        padding-bottom: 0.2rem;
+        border-bottom: none;
+    }
+    
+    .borderless-table td {
+        padding-top: 0;
+        margin-bottom: 0.5rem;
+    }
+}
